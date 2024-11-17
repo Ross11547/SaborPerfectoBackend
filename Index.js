@@ -13,7 +13,7 @@ app.use(
 );
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({origin: "*"}));
 app.use(usuario);
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
