@@ -1,19 +1,16 @@
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const usuario = require("./controllers/usuario");
+import express from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
+import usuario from "./controllers/usuario.js";
 
 const app = express();
 const port = 3000;
-
+app.use(cors({ origin: "*" }));
 app.use(
   bodyParser.urlencoded({
     extended: false,
   })
 );
-
-app.use(bodyParser.json());
-app.use(cors({origin: "*"}));
 app.use(usuario);
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
